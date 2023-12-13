@@ -60,7 +60,7 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -70,7 +70,8 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-
+let price = pizza.price
+console.log(price)
 
 /*
     Fourth, and last, destructure the category
@@ -80,7 +81,8 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-
+let category = pizza.category
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -95,6 +97,49 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
+let foodArr = [
+    {
+        name: 'pizza: Meaty Mountain',
+        price: 15,
+        category: 'entre',
+        popularity: 3,
+        rating: 7,
+        tags: ['So much meat','Very meaty', ]
+    },
+    {
+        name: 'burrito: Cool Beans',
+        price: 8,
+        category: 'entre',
+        popularity: 5,
+        rating: 8,
+        tags: ['A beany delight', 'So many beans']
+    },
+    {
+        name: 'sandwich: SANDwich',
+        price: 6,
+        category: 'entre',
+        popularity: 0,
+        rating: 0,
+        tags: ['Made with real sand', 'Gritty']
+    },
+    {
+        name: 'waffle: Pocket Waffle',
+        price: 3,
+        category: 'appetizer',
+        popularity: 10,
+        rating: 10,
+        tags: ['Bite size', 'Fits in pocket']
+    },
+    {
+        name: 'dessert: Long Churro',
+        price: 4,
+        category: 'appetizer',
+        popularity: 9,
+        rating: 8,
+        tags: ['Snakey', 'Endless supply of churro']
+    }
+]
+
 
 
 
@@ -111,8 +156,11 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
+const filteredFood = (tag) => {
+    return foodArr.filter(food => food.tags.includes(tag))
+}
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+console.log(filteredFood('Fits in pocket'))
 
 
 
@@ -156,6 +204,18 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
+let filterByProperty = (property, number, type) => {
+    let filteredArray
+
+    if (type === 'above') {
+        filteredArray = foodArr.filter(food => food[property] > number)
+    } else if (type === 'below') {
+        filteredArray = foodArr.filter(food => food[property] < number)
+    }
+
+    return filteredArray
+}
+
 
 
 /*
@@ -166,3 +226,5 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
+
+console.log(filterByProperty('rating', 7, 'above'))

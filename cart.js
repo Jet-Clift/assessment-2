@@ -35,7 +35,9 @@ const cart = [
 
 //CODE HERE
 
-const summedPrice = cart.reduce((acc, cur) => acc + cur.price,0)
+const cartTotal = cart.reduce((sum, item) => sum + item.price, 0);
+console.log("Cart Total:", cartTotal);
+
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -53,8 +55,15 @@ const summedPrice = cart.reduce((acc, cur) => acc + cur.price,0)
 */
 
 //CODE HERE
-let couponValue = 5
-let calcFinalPrice = summedPrice*1.06 - couponValue
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    const taxedTotal = cartTotal + cartTotal * tax;
+    const finalPrice = taxedTotal - couponValue;
+    return finalPrice;
+}
+
+const finalPrice = calcFinalPrice(cartTotal, 2.50, 0.08);
+console.log("Final Price:", finalPrice);
+
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -78,6 +87,14 @@ let calcFinalPrice = summedPrice*1.06 - couponValue
 
 /*
     TEXT ANSWER HERE
+ 
+ 1. name: String - To store the customer's name for personalization.
+2. email: String - To store the customer's email for communication.
+3. address: String - To store the customer's address for delivery.
+4. loyaltyPoints: Number - To store the customer's loyalty points for rewards.
+
+These properties are chosen because they provide essential information for processing orders, communication, and customer relationship management. 
+The data types are chosen based on the nature of the information they represent (names and emails are strings, and loyalty points are numbers).
 
 */
 
@@ -87,3 +104,11 @@ let calcFinalPrice = summedPrice*1.06 - couponValue
 */
 
 //CODE HERE
+const customer = {
+    name: 'Azus McGronky',
+    email: 'AzusMcG@gmail.com',
+    address: '5839 North Southern St, Smalltown City',
+    loyaltyPoints: 120
+};
+
+console.log("Customer:", customer);
